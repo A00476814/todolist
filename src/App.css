@@ -1,51 +1,44 @@
-.task-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.task-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.task-item input[type="checkbox"] {
-  margin-right: 10px;
-}
-
-.task-item select {
-  margin-left: auto;
-  margin-right: 10px;
-}
-
-.task-item.completed {
-  text-decoration: line-through;
-  color: #999;
-}
-
-.task-item button {
-  margin-left: 10px;
-}
-
-/* App.css */
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #f4f4f4;
+  background-color: #e9ecef;
   margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 80%;
+  max-width: 600px;
+  background-color: #ffffff;
   padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
 }
 
 .task-form {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.task-form input, .task-form select, .task-form button {
+.task-form input,
+.task-form select,
+.task-form button {
   padding: 10px;
   margin: 0 5px;
-  border: none;
+  border: 1px solid #ddd;
   border-radius: 5px;
+  font-size: 16px;
 }
 
 .task-form button {
@@ -64,43 +57,64 @@ body {
 }
 
 .task-item {
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  display: flex;
+  align-items: center;
 }
 
-.task-item.completed {
-  text-decoration: line-through;
-  color: #999;
+.task-item:not(:last-child) {
+  margin-bottom: 15px;
 }
 
-.task-item:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.task-checkbox {
+  margin-right: 15px;
 }
 
-.task-item input[type="checkbox"] {
-  margin-right: 10px;
+.task-title {
+  margin-right: auto;
 }
 
-.task-item select {
-  margin-left: auto;
-  margin-right: 10px;
+.task-priority {
+  margin-right: 15px;
 }
 
-.task-item button {
-  padding: 5px 10px;
-  background-color: #EF5350;
+.task-delete {
+  background-color: #dc3545;
   color: white;
   border: none;
   border-radius: 5px;
+  padding: 5px 10px;
   cursor: pointer;
 }
 
-.task-item button:hover {
-  background-color: #D32F2F;
+.task-delete:hover {
+  background-color: #bd2130;
 }
 
+/* Priority based colors */
+.priority-high {
+  background-color: #f8d7da; /* Soft red for high priority */
+}
+
+.priority-medium {
+  background-color: #fff3cd; /* Soft yellow for medium priority */
+}
+
+.priority-low {
+  background-color: #d4edda; /* Soft green for low priority */
+}
+
+/* Completed task styling */
+.task-item.completed {
+  color: #6c757d;
+  text-decoration: line-through;
+}
+
+/* Add this to ensure select dropdown is always on the left */
+.task-item .task-priority {
+  order: -1;
+}
