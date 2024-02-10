@@ -9,11 +9,21 @@ function Task({ task, onDeleteTask, onTaskUpdate }) {
 
   const handlePriorityChange = async (e) => {
     await updateTask(task.id, { priority: e.target.value });
-    onTaskUpdate(); // This will trigger re-fetching of tasks in App.js
+    onTaskUpdate();
+  };
+
+  const toggleCompleted = async () => {
+    await updateTask(task.id, { completed: !task.completed });
+    onTaskUpdate();
   };
 
   return (
-    <li>
+    <li style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={toggleCompleted}
+      />
       {task.title}
       <select value={task.priority} onChange={handlePriorityChange}>
         <option value="High">High</option>
