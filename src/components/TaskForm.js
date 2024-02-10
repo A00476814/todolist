@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { addTask } from '../db';
+import '../App.css';
+
 
 function TaskForm({ onNewTask }) {
   const [inputValue, setInputValue] = useState('');

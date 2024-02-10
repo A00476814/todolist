@@ -1,5 +1,7 @@
 import React from 'react';
 import { deleteTask, updateTask } from '../db';
+import '../App.css';
+
 
 function Task({ task, onDeleteTask, onTaskUpdate }) {
   const handleDelete = async () => {
@@ -18,7 +20,7 @@ function Task({ task, onDeleteTask, onTaskUpdate }) {
   };
 
   return (
-    <li style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
+    <li className={`task-item ${task.completed ? 'completed' : ''}`}>
       <input
         type="checkbox"
         checked={task.completed}
